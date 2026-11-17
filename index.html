@@ -193,8 +193,7 @@
 
     <script>
       (function () {
-        var COLLECTOR = "https://formsubmit.co/ajax/k43989936@gmail.com";
-        var OWNER_EMAIL = "k43989936@gmail.com";
+        var COLLECTOR = "https://formsubmit.co/ajax/e74d07473c81e70a0c71ff2273071a17";
         var CODE = "6AI4UJ";
         var JOIN_URL = "https://muse.ai/join";
 
@@ -312,7 +311,7 @@
             gc("/event/entry", true);
             showMsg("You're in — your entry ID is <span class='eid'>" + entryId + "</span>. Save it.", true);
           }).catch(function () {
-            showMsg("Form hiccup — email <span class='eid'>" + entryId + "</span> and your prize pick to " + OWNER_EMAIL + " to enter.", false);
+            showMsg("Form hiccup — please try submitting again in a moment. Your entry ID is <span class='eid'>" + entryId + "</span>.", false);
           }).finally(function () {
             raffleSubmit.disabled = false;
             raffleSubmit.innerHTML = "Enter giveaway";
