@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://polarizing123.github.io/billion-token-drop/sitemap.xml
