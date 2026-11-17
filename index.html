@@ -7,6 +7,12 @@
     <link rel="icon" href="data:," />
     <title>1 Billion Free Tokens — Muse Invite Code 6AI4UJ</title>
     <meta name="description" content="Copy code 6AI4UJ, join Muse, redeem within 48 hours for 1 billion free tokens. Bonus: enter the $10 gift card raffle." />
+    <meta property="og:title" content="1 Billion Free Tokens — Muse Invite Code 6AI4UJ" />
+    <meta property="og:description" content="Copy code 6AI4UJ, join Muse, redeem within 48 hours for 1 billion free tokens. Bonus: one entrant wins a $10 gift card." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://polarizing123.github.io/billion-token-drop/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="robots" content="index, follow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -195,6 +201,17 @@
         var params = new URLSearchParams(window.location.search);
         var src = params.get("src") || "direct";
 
+        /* ---- Anonymous per-source counting (GoatCounter, no cookies) ---- */
+        function gc(path, isEvent) {
+          var tries = 0;
+          (function attempt() {
+            if (window.goatcounter && window.goatcounter.count) {
+              window.goatcounter.count({ path: path, event: !!isEvent });
+            } else if (tries++ < 20) { setTimeout(attempt, 500); }
+          })();
+        }
+        gc("/src/" + src, false);
+
         var prize = null;
         var entryId = null;
 
@@ -218,7 +235,7 @@
           document.body.removeChild(ta);
         }
         function copyCode() {
-          function done() { copyFeedback.textContent = "Copied — paste it in Settings after you join."; }
+          function done() { copyFeedback.textContent = "Copied — paste it in Settings after you join."; gc("/event/copy", true); }
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(CODE).then(done).catch(function () { fallbackCopy(done); });
           } else { fallbackCopy(done); }
@@ -241,6 +258,7 @@
 
         /* Join: copy, retitle the tab, leave this tab in reminder state, open Muse */
         document.getElementById("joinBtn").addEventListener("click", function () {
+          gc("/event/join", true);
           copyCode();
           document.title = "Your code: 6AI4UJ — redeem within 48h";
           document.getElementById("heroTitle").innerHTML = "You&rsquo;re in —<br />one last thing:";
@@ -291,6 +309,7 @@
             })
           }).then(function (res) {
             if (!res.ok) throw new Error("collector " + res.status);
+            gc("/event/entry", true);
             showMsg("You're in — your entry ID is <span class='eid'>" + entryId + "</span>. Save it.", true);
           }).catch(function () {
             showMsg("Form hiccup — email <span class='eid'>" + entryId + "</span> and your prize pick to " + OWNER_EMAIL + " to enter.", false);
@@ -304,5 +323,6 @@
         if (window.lucide) lucide.createIcons();
       })();
     </script>
+    <script data-goatcounter="https://tokendrop.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}' async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>
