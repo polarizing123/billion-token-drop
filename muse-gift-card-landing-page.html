@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>1 Billion Free AI Tokens + Win a $10 Gift Card — Muse Invite Raffle</title>
+    <meta name="description" content="Join Muse with code 6AI4UJ, redeem within 48 hours for 1 billion free tokens, and enter to win one $10 gift card of your choice." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2rem; }
+
+      :root {
+        --bg: #f6f3ec;
+        --surface: #fffdf8;
+        --surface-2: #efe9dc;
+        --ink: #17140f;
+        --ink-soft: #57503f;
+        --line: #ddd3bf;
+        --accent: #e8490f;
+        --accent-ink: #ffffff;
+        --accent-soft: #ffe3d3;
+        --green: #1c7c43;
+        --green-soft: #dcf2e3;
+        --gold: #96690a;
+        --gold-soft: #fdf0cd;
+        --shadow: 0 10px 30px rgba(23, 20, 15, 0.10);
+        --radius: 14px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #14110d;
+          --surface: #1e1a14;
+          --surface-2: #292219;
+          --ink: #f4efe4;
+          --ink-soft: #b8ae97;
+          --line: #3d3527;
+          --accent: #ff6a2b;
+          --accent-ink: #1a0e04;
+          --accent-soft: #4a2410;
+          --green: #4cc97e;
+          --green-soft: #173626;
+          --gold: #e8b93e;
+          --gold-soft: #3d2f0d;
+          --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, .display { font-family: "Outfit", -apple-system, sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+      a { color: var(--accent); }
+
+      .wrap { max-width: 680px; margin: 0 auto; padding: 0 18px 64px; }
+
+      /* ---------- Hero ---------- */
+      .hero { padding: 34px 0 8px; text-align: center; }
+      .hero-badge {
+        display: inline-flex; align-items: center; gap: 7px;
+        background: var(--gold-soft); color: var(--gold);
+        border: 1px solid var(--gold);
+        font-family: "Outfit", sans-serif; font-weight: 700; font-size: 13px;
+        padding: 6px 13px; border-radius: 999px; letter-spacing: 0.02em;
+      }
+      .hero-badge svg { width: 15px; height: 15px; }
+      .hero h1 {
+        font-size: clamp(32px, 8.4vw, 52px);
+        line-height: 1.04; font-weight: 900; letter-spacing: -0.015em;
+        margin: 18px 0 14px;
+      }
+      .hero h1 .hl { color: var(--accent); }
+      .hero h1 .hl2 { color: var(--green); }
+      .hero h1 .hl-small { font-size: 0.52em; font-weight: 800; }
+      .hero p.sub {
+        font-size: 17px; color: var(--ink-soft); margin: 0 auto; max-width: 520px;
+      }
+      .hero p.sub strong { color: var(--ink); }
+      .hero-meta {
+        display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 18px;
+      }
+      .hero-meta span {
+        display: inline-flex; align-items: center; gap: 6px;
+        background: var(--surface); border: 1px solid var(--line);
+        font-size: 13px; font-weight: 600; padding: 6px 11px; border-radius: 999px;
+      }
+      .hero-meta svg { width: 14px; height: 14px; color: var(--green); }
+
+      .guaranteed {
+        margin-top: 22px; text-align: left;
+        background: var(--green-soft); border: 1.5px solid var(--green);
+        border-radius: var(--radius); padding: 14px 16px;
+        display: flex; gap: 12px; align-items: flex-start;
+      }
+      .guaranteed svg { width: 22px; height: 22px; color: var(--green); flex: none; margin-top: 2px; }
+      .guaranteed strong { display: block; font-family: "Outfit", sans-serif; font-size: 16px; }
+      .guaranteed p { margin: 2px 0 0; font-size: 14px; color: var(--ink-soft); }
+      .guaranteed p strong { display: inline; font-size: 14px; color: var(--ink); font-family: inherit; }
+
+      /* ---------- Progress ---------- */
+      .progress-shell {
+        position: sticky; top: 0; z-index: 20;
+        background: var(--bg); padding: 14px 0 10px;
+      }
+      .progress-card {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        box-shadow: var(--shadow); padding: 13px 15px;
+      }
+      .progress-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+      .progress-top .plabel { font-family: "Outfit", sans-serif; font-weight: 800; font-size: 14px; }
+      .progress-top .ppct { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 14px; color: var(--accent); }
+      .bar { height: 10px; background: var(--surface-2); border-radius: 999px; margin-top: 9px; overflow: hidden; }
+      .bar-fill {
+        height: 100%; width: 0%; background: var(--accent); border-radius: 999px;
+        transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .checklist { list-style: none; margin: 11px 0 0; padding: 0; display: grid; gap: 5px; }
+      .checklist li {
+        display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-soft);
+      }
+      .checklist li .box {
+        width: 19px; height: 19px; flex: none; border-radius: 6px;
+        border: 1.5px solid var(--line); background: var(--surface-2);
+        display: grid; place-items: center; color: transparent;
+      }
+      .checklist li .box svg { width: 12px; height: 12px; }
+      .checklist li.done { color: var(--ink); font-weight: 600; }
+      .checklist li.done .box { background: var(--green); border-color: var(--green); color: #fff; }
+      @media (prefers-color-scheme: dark) { .checklist li.done .box { color: #0d2417; } }
+
+      /* ---------- Steps ---------- */
+      .step {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        box-shadow: var(--shadow); padding: 22px 18px; margin-top: 20px;
+      }
+      .step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+      .step-num {
+        width: 34px; height: 34px; flex: none; border-radius: 10px;
+        background: var(--ink); color: var(--bg);
+        font-family: "Outfit", sans-serif; font-weight: 900; font-size: 17px;
+        display: grid; place-items: center;
+      }
+      .step.complete .step-num { background: var(--green); color: #fff; }
+      @media (prefers-color-scheme: dark) { .step.complete .step-num { color: #0d2417; } }
+      .step h2 { font-size: 21px; font-weight: 800; margin: 0; line-height: 1.2; }
+      .step .lede { color: var(--ink-soft); font-size: 14.5px; margin: 4px 0 14px; }
+      .step .lede strong { color: var(--ink); }
+
+      /* Prize grid */
+      .prize-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      @media (min-width: 560px) { .prize-grid { grid-template-columns: repeat(3, 1fr); } }
+      .prize {
+        appearance: none; text-align: left; cursor: pointer;
+        background: var(--surface-2); border: 2px solid var(--line); border-radius: 12px;
+        padding: 13px 13px 11px; color: var(--ink); font: inherit;
+        display: flex; flex-direction: column; gap: 4px; min-height: 112px; padding: 16px 14px 13px;
+        transition: border-color 0.15s, transform 0.1s;
+      }
+      .prize:active { transform: scale(0.98); }
+      .prize svg { width: 32px; height: 32px; color: var(--accent); }
+      .prize .pname { font-family: "Outfit", sans-serif; font-weight: 800; font-size: 17px; line-height: 1.25; }
+      .prize .pval { font-size: 12.5px; color: var(--ink-soft); }
+      .prize.selected { border-color: var(--accent); background: var(--accent-soft); }
+      .prize.selected .pcheck { display: inline-flex; }
+      .pcheck {
+        display: none; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; color: var(--accent);
+      }
+      .pcheck svg { width: 13px; height: 13px; color: var(--accent); }
+      .prize-note { font-size: 13px; color: var(--ink-soft); margin: 12px 0 0; }
+
+      /* Forms */
+      label.flabel { display: block; font-family: "Outfit", sans-serif; font-weight: 700; font-size: 14px; margin: 12px 0 6px; }
+      input[type="email"], input[type="text"] {
+        width: 100%; padding: 12px 13px; font-size: 16px; font-family: inherit;
+        border: 1.5px solid var(--line); border-radius: 10px;
+        background: var(--surface); color: var(--ink);
+      }
+      input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+      .fine { font-size: 12.5px; color: var(--ink-soft); margin-top: 9px; }
+      .btn {
+        appearance: none; border: none; cursor: pointer; font: inherit;
+        font-family: "Outfit", sans-serif; font-weight: 800; font-size: 16px;
+        background: var(--accent); color: var(--accent-ink);
+        padding: 14px 20px; border-radius: 12px; width: 100%;
+        display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+        margin-top: 14px; text-decoration: none; text-align: center;
+      }
+      .btn svg { width: 19px; height: 19px; }
+      .btn:active { transform: scale(0.99); }
+      .btn[disabled] { opacity: 0.55; cursor: default; }
+      .btn.secondary { background: var(--ink); color: var(--bg); }
+
+      .entry-id-box {
+        display: none; margin-top: 16px;
+        background: var(--gold-soft); border: 1.5px dashed var(--gold);
+        border-radius: 12px; padding: 14px 15px;
+      }
+      .entry-id-box.show { display: block; }
+      .entry-id-box .eid-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
+      .entry-id-box .eid { font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 600; letter-spacing: 0.04em; margin: 3px 0 5px; }
+      .entry-id-box p { margin: 0; font-size: 13.5px; color: var(--ink-soft); }
+      .status-msg { display: none; margin-top: 12px; font-size: 14px; border-radius: 10px; padding: 11px 13px; }
+      .status-msg.show { display: block; }
+      .status-msg.ok { background: var(--green-soft); border: 1px solid var(--green); }
+      .status-msg.err { background: var(--accent-soft); border: 1px solid var(--accent); }
+
+      /* Code box */
+      .code-box { display: flex; align-items: stretch; gap: 9px; margin-top: 14px; }
+      .code-value {
+        flex: 1; display: flex; align-items: center; justify-content: center;
+        font-family: "IBM Plex Mono", monospace; font-size: 26px; font-weight: 600; letter-spacing: 0.14em;
+        background: var(--surface-2); border: 2px dashed var(--accent); border-radius: 12px; padding: 10px;
+      }
+      .copy-btn {
+        appearance: none; border: none; cursor: pointer; font: inherit;
+        font-family: "Outfit", sans-serif; font-weight: 800; font-size: 15px;
+        background: var(--ink); color: var(--bg); border-radius: 12px; padding: 0 18px;
+        display: inline-flex; align-items: center; gap: 7px;
+      }
+      .copy-btn svg { width: 16px; height: 16px; }
+      .copy-feedback { font-size: 13px; color: var(--green); font-weight: 700; min-height: 19px; margin-top: 7px; }
+
+      /* Redeem paths */
+      .path-card {
+        background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px;
+        padding: 13px 15px; margin-top: 10px;
+      }
+      .path-card .ptitle { display: flex; align-items: center; gap: 8px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 15px; }
+      .path-card .ptitle svg { width: 17px; height: 17px; color: var(--accent); }
+      .path-card .ppath { margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.55; }
+      .path-card .ppath .arr { color: var(--accent); font-weight: 900; }
+      .deadline {
+        display: flex; gap: 11px; align-items: flex-start; margin-top: 14px;
+        background: var(--accent-soft); border: 1.5px solid var(--accent); border-radius: 12px; padding: 13px 15px;
+      }
+      .deadline svg { width: 21px; height: 21px; color: var(--accent); flex: none; margin-top: 1px; }
+      .deadline p { margin: 0; font-size: 14.5px; }
+
+      /* Terms / FAQ */
+      .terms {
+        margin-top: 26px; background: var(--surface); border: 1px solid var(--line);
+        border-radius: var(--radius); padding: 20px 18px;
+      }
+      .terms h2 { font-size: 19px; font-weight: 800; margin: 0 0 10px; display: flex; align-items: center; gap: 9px; }
+      .terms h2 svg { width: 19px; height: 19px; color: var(--accent); }
+      .terms ul { margin: 0; padding-left: 19px; display: grid; gap: 7px; font-size: 14px; color: var(--ink-soft); }
+      .terms ul strong { color: var(--ink); }
+      details.faq {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 4px 18px; margin-top: 12px;
+      }
+      details.faq summary {
+        cursor: pointer; font-family: "Outfit", sans-serif; font-weight: 700; font-size: 16px;
+        padding: 13px 0; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+      }
+      details.faq summary::-webkit-details-marker { display: none; }
+      details.faq summary svg { width: 17px; height: 17px; flex: none; color: var(--ink-soft); transition: transform 0.2s; }
+      details.faq[open ] summary svg { transform: rotate(180deg); }
+      details.faq p { margin: 0 0 15px; font-size: 14.5px; color: var(--ink-soft); }
+      details.faq p strong { color: var(--ink); }
+      .faq-head { font-family: "Outfit", sans-serif; font-size: 21px; font-weight: 800; margin: 30px 0 2px; }
+
+      footer { margin-top: 34px; text-align: center; font-size: 12.5px; color: var(--ink-soft); display: grid; gap: 6px; }
+      footer strong { color: var(--ink); }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bar-fill { transition: none; }
+        html { scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <!-- ================= HERO ================= -->
+      <header class="hero">
+        <span class="hero-badge"><i data-lucide="ticket"></i> Invite raffle</span>
+        <h1><span class="hl2">1 Billion Free Tokens</span><br /><span class="hl-small">+ a chance to win <span class="hl">$10</span></span></h1>
+        <p class="sub">Join Muse with code <strong class="mono">6AI4UJ</strong>, redeem it, keep the tokens.</p>
+        <div class="hero-meta">
+          <span><i data-lucide="timer"></i> ~3 minutes</span>
+          <span><i data-lucide="trophy"></i> One winner</span>
+          <span><i data-lucide="user-check"></i> 18+</span>
+        </div>
+      </header>
+
+      <!-- ================= PROGRESS ================= -->
+      <div class="progress-shell">
+        <div class="progress-card">
+          <div class="progress-top">
+            <span class="plabel">Your entry progress</span>
+            <span class="ppct" id="pctLabel">0%</span>
+          </div>
+          <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+          <ul class="checklist">
+            <li id="chk-prize"><span class="box"><i data-lucide="check"></i></span> Pick your prize</li>
+            <li id="chk-email"><span class="box"><i data-lucide="check"></i></span> Enter your email</li>
+            <li id="chk-join"><span class="box"><i data-lucide="check"></i></span> Join with code 6AI4UJ</li>
+            <li id="chk-redeem"><span class="box"><i data-lucide="check"></i></span> Redeem within 48 hours</li>
+            <li id="chk-confirm"><span class="box"><i data-lucide="check"></i></span> Confirm entry</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ================= STEP 1: PRIZE ================= -->
+      <section class="step" id="step1">
+        <div class="step-head"><span class="step-num">1</span><h2>Pick your prize</h2></div>
+        <p class="lede">The $10 card you'd win.</p>
+        <div class="prize-grid" id="prizeGrid">
+          <button type="button" class="prize" data-prize="Battle Pass credit ($10)">
+            <i data-lucide="swords"></i>
+            <span class="pname">Battle Pass Credit</span>
+            <span class="pval">$10 toward this season's pass</span>
+            <span class="pcheck"><i data-lucide="check-circle-2"></i> Your pick</span>
+          </button>
+          <button type="button" class="prize" data-prize="Steam game credit ($10)">
+            <i data-lucide="gamepad-2"></i>
+            <span class="pname">Steam Game Credit</span>
+            <span class="pval">$10 Steam gift card</span>
+            <span class="pcheck"><i data-lucide="check-circle-2"></i> Your pick</span>
+          </button>
+          <button type="button" class="prize" data-prize="Discord Nitro (1 month)">
+            <i data-lucide="rocket"></i>
+            <span class="pname">Discord Nitro</span>
+            <span class="pval">1 month, $10 value</span>
+            <span class="pcheck"><i data-lucide="check-circle-2"></i> Your pick</span>
+          </button>
+          <button type="button" class="prize" data-prize="Xbox credit ($10)">
+            <i data-lucide="joystick"></i>
+            <span class="pname">Xbox Credit</span>
+            <span class="pval">$10 Xbox gift card</span>
+            <span class="pcheck"><i data-lucide="check-circle-2"></i> Your pick</span>
+          </button>
+          <button type="button" class="prize" data-prize="PlayStation credit ($10)">
+            <i data-lucide="ghost"></i>
+            <span class="pname">PlayStation Credit</span>
+            <span class="pval">$10 PS Store gift card</span>
+            <span class="pcheck"><i data-lucide="check-circle-2"></i> Your pick</span>
+          </button>
+          <button type="button" class="prize" data-prize="Amazon gift card ($10)">
+            <i data-lucide="package"></i>
+            <span class="pname">Amazon</span>
+            <span class="pval">$10 Amazon gift card</span>
+            <span class="pcheck"><i data-lucide="check-circle-2"></i> Your pick</span>
+          </button>
+          <button type="button" class="prize" data-prize="DoorDash gift card ($10)">
+            <i data-lucide="utensils"></i>
+            <span class="pname">DoorDash</span>
+            <span class="pval">$10 DoorDash gift card</span>
+            <span class="pcheck"><i data-lucide="check-circle-2"></i> Your pick</span>
+          </button>
+          <button type="button" class="prize" data-prize="Starbucks gift card ($10)">
+            <i data-lucide="coffee"></i>
+            <span class="pname">Starbucks</span>
+            <span class="pval">$10 Starbucks gift card</span>
+            <span class="pcheck"><i data-lucide="check-circle-2"></i> Your pick</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= STEP 2: EMAIL ================= -->
+      <section class="step" id="step2">
+        <div class="step-head"><span class="step-num">2</span><h2>Enter your email</h2></div>
+        <p class="lede">Get your entry ID — save it for Step 5.</p>
+        <form id="entryForm" novalidate>
+          <label class="flabel" for="entryEmail">Email address</label>
+          <input type="email" id="entryEmail" name="email" placeholder="you@example.com" autocomplete="email" required />
+          <button type="submit" class="btn" id="entrySubmit"><i data-lucide="mail-plus"></i> Get my entry ID</button>
+        </form>
+        <div class="status-msg" id="entryStatus" role="status"></div>
+        <div class="entry-id-box" id="entryIdBox">
+          <div class="eid-label">Your entry ID — save this</div>
+          <div class="eid" id="entryIdValue">—</div>
+          <p>Prize pick: <strong id="entryPrizeEcho">—</strong></p>
+        </div>
+      </section>
+
+      <!-- ================= STEP 3: JOIN ================= -->
+      <section class="step" id="step3">
+        <div class="step-head"><span class="step-num">3</span><h2>Join with code 6AI4UJ</h2></div>
+        <p class="lede">Tap the button — it copies the code and opens signup.</p>
+        <div class="code-box">
+          <div class="code-value">6AI4UJ</div>
+          <button type="button" class="copy-btn" id="copyBtn"><i data-lucide="copy"></i> Copy</button>
+        </div>
+        <div class="copy-feedback" id="copyFeedback" aria-live="polite"></div>
+        <a class="btn" id="joinBtn" href="https://muse.ai/join" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Copy code &amp; join Muse</a>
+      </section>
+
+      <!-- ================= STEP 4: REDEEM ================= -->
+      <section class="step" id="step4">
+        <div class="step-head"><span class="step-num">4</span><h2>Redeem in Settings</h2></div>
+        <p class="lede">Within <strong>48 hours</strong> of joining — joining alone doesn't count.</p>
+        <div class="path-card">
+          <div class="ptitle"><i data-lucide="smartphone"></i> App</div>
+          <div class="ppath">Settings <span class="arr">→</span> Redeem token</div>
+        </div>
+        <div class="path-card">
+          <div class="ptitle"><i data-lucide="monitor"></i> Web</div>
+          <div class="ppath">Settings <span class="arr">→</span> General <span class="arr">→</span> Usage <span class="arr">→</span> Redeem invite code</div>
+        </div>
+      </section>
+
+      <!-- ================= STEP 5: CONFIRM ================= -->
+      <section class="step" id="step5">
+        <div class="step-head"><span class="step-num">5</span><h2>Confirm entry</h2></div>
+        <p class="lede">Same email + entry ID from Step 2.</p>
+        <form id="confirmForm" novalidate>
+          <label class="flabel" for="confirmEmail">Email address</label>
+          <input type="email" id="confirmEmail" placeholder="you@example.com" autocomplete="email" required />
+          <label class="flabel" for="confirmId">Entry ID</label>
+          <input type="text" id="confirmId" placeholder="e.g. MUSE-7K2QX9" autocomplete="off" required />
+          <button type="submit" class="btn secondary" id="confirmSubmit"><i data-lucide="shield-check"></i> I redeemed — confirm my entry</button>
+        </form>
+        <div class="status-msg" id="confirmStatus" role="status"></div>
+        <div class="deadline" style="margin-top:16px;">
+          <i data-lucide="camera"></i>
+          <p>Then email your redemption screenshot to <strong>k43989936@gmail.com</strong> — entry ID in the subject.</p>
+        </div>
+      </section>
+
+      <footer>
+        <span>18+ · One $10 prize total — 1 winner from verified entries · Tokens from Muse when you redeem within 48h of joining.</span>
+      </footer>
+
+    </div>
+
+    <script>
+      (function () {
+        var COLLECTOR = "https://formsubmit.co/ajax/k43989936@gmail.com";
+        var OWNER_EMAIL = "k43989936@gmail.com";
+        var CODE = "6AI4UJ";
+
+        var params = new URLSearchParams(window.location.search);
+        var src = params.get("src") || "direct";
+
+        var state = {
+          prize: null,
+          email: null,
+          entryId: null,
+          entered: false,
+          joined: false,
+          confirmed: false
+        };
+
+        var barFill = document.getElementById("barFill");
+        var pctLabel = document.getElementById("pctLabel");
+        var checks = {
+          prize: document.getElementById("chk-prize"),
+          email: document.getElementById("chk-email"),
+          join: document.getElementById("chk-join"),
+          redeem: document.getElementById("chk-redeem"),
+          confirm: document.getElementById("chk-confirm")
+        };
+        var steps = {
+          prize: document.getElementById("step1"),
+          email: document.getElementById("step2"),
+          join: document.getElementById("step3"),
+          confirm: document.getElementById("step5")
+        };
+
+        function refreshProgress() {
+          var pct = 0;
+          if (state.prize) pct = 25;
+          if (state.entered) pct = 50;
+          if (state.joined) pct = 75;
+          if (state.confirmed) pct = 100;
+          barFill.style.width = pct + "%";
+          pctLabel.textContent = pct + "%";
+          checks.prize.classList.toggle("done", !!state.prize);
+          checks.email.classList.toggle("done", state.entered);
+          checks.join.classList.toggle("done", state.joined);
+          checks.redeem.classList.toggle("done", state.confirmed);
+          checks.confirm.classList.toggle("done", state.confirmed);
+          steps.prize.classList.toggle("complete", !!state.prize);
+          steps.email.classList.toggle("complete", state.entered);
+          steps.join.classList.toggle("complete", state.joined);
+          steps.confirm.classList.toggle("complete", state.confirmed);
+        }
+
+        function makeEntryId() {
+          var chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+          var out = "";
+          for (var i = 0; i < 6; i++) {
+            out += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          return "MUSE-" + out;
+        }
+
+        function postToCollector(payload) {
+          return fetch(COLLECTOR, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(payload)
+          }).then(function (res) {
+            if (!res.ok) throw new Error("collector " + res.status);
+            return res;
+          });
+        }
+
+        function showStatus(el, html, ok) {
+          el.innerHTML = html;
+          el.className = "status-msg show " + (ok ? "ok" : "err");
+        }
+
+        /* ---- Step 1: prize pick ---- */
+        var prizeBtns = document.querySelectorAll(".prize");
+        prizeBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            prizeBtns.forEach(function (b) { b.classList.remove("selected"); });
+            btn.classList.add("selected");
+            state.prize = btn.getAttribute("data-prize");
+            refreshProgress();
+          });
+        });
+
+        /* ---- Step 2: email entry ---- */
+        var entryForm = document.getElementById("entryForm");
+        var entryStatus = document.getElementById("entryStatus");
+        var entrySubmit = document.getElementById("entrySubmit");
+        entryForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var email = document.getElementById("entryEmail").value.trim();
+          if (!state.prize) {
+            showStatus(entryStatus, "Pick your prize in <strong>Step 1</strong> first.", false);
+            document.getElementById("step1").scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+          }
+          if (!email || email.indexOf("@") < 1 || email.indexOf(".") < 0) {
+            showStatus(entryStatus, "That email doesn't look right — check it and retry.", false);
+            return;
+          }
+          if (!state.entryId) state.entryId = makeEntryId();
+          state.email = email;
+          entrySubmit.disabled = true;
+          entrySubmit.textContent = "Saving your entry…";
+
+          postToCollector({
+            _subject: "Muse raffle entry " + state.entryId,
+            type: "raffle-entry",
+            email: email,
+            prize: state.prize,
+            entry_id: state.entryId,
+            src: src,
+            referral_code: CODE
+          }).then(function () {
+            state.entered = true;
+            document.getElementById("entryIdValue").textContent = state.entryId;
+            document.getElementById("entryPrizeEcho").textContent = state.prize;
+            document.getElementById("entryIdBox").classList.add("show");
+            showStatus(entryStatus, "<strong>You're in.</strong> Finish Steps 3–5 to lock it in.", true);
+            var confirmEmail = document.getElementById("confirmEmail");
+            var confirmId = document.getElementById("confirmId");
+            if (!confirmEmail.value) confirmEmail.value = email;
+            if (!confirmId.value) confirmId.value = state.entryId;
+            refreshProgress();
+          }).catch(function () {
+            document.getElementById("entryIdValue").textContent = state.entryId;
+            document.getElementById("entryPrizeEcho").textContent = state.prize;
+            document.getElementById("entryIdBox").classList.add("show");
+            showStatus(entryStatus, "Form hiccup. Email your entry ID <strong>" + state.entryId + "</strong> and prize pick (" + state.prize + ") to <strong>" + OWNER_EMAIL + "</strong> to enter manually — then continue to Step 3.", false);
+            state.entered = true;
+            var confirmEmail2 = document.getElementById("confirmEmail");
+            var confirmId2 = document.getElementById("confirmId");
+            if (!confirmEmail2.value) confirmEmail2.value = email;
+            if (!confirmId2.value) confirmId2.value = state.entryId;
+            refreshProgress();
+          }).finally(function () {
+            entrySubmit.disabled = false;
+            entrySubmit.innerHTML = "Get my entry ID";
+            if (window.lucide) lucide.createIcons();
+          });
+        });
+
+        /* ---- Step 3: copy + join ---- */
+        var copyFeedback = document.getElementById("copyFeedback");
+        function fallbackCopy(done) {
+          var ta = document.createElement("textarea");
+          ta.value = CODE;
+          ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); done(); }
+          catch (err) { copyFeedback.textContent = "Copy didn't work — the code is 6AI4UJ, type it in Settings."; }
+          document.body.removeChild(ta);
+        }
+        function copyCode() {
+          function done() { copyFeedback.textContent = "Code 6AI4UJ copied — paste it in Settings after you join."; }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(CODE).then(done).catch(function () { fallbackCopy(done); });
+          } else {
+            fallbackCopy(done);
+          }
+        }
+        document.getElementById("copyBtn").addEventListener("click", copyCode);
+        document.getElementById("joinBtn").addEventListener("click", function () {
+          copyCode();
+          state.joined = true;
+          refreshProgress();
+        });
+
+        /* ---- Step 5: confirm ---- */
+        var confirmForm = document.getElementById("confirmForm");
+        var confirmStatus = document.getElementById("confirmStatus");
+        var confirmSubmit = document.getElementById("confirmSubmit");
+        confirmForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var email = document.getElementById("confirmEmail").value.trim();
+          var entryId = document.getElementById("confirmId").value.trim().toUpperCase();
+          if (!email || email.indexOf("@") < 1) {
+            showStatus(confirmStatus, "Enter the same email you used in Step 2.", false);
+            return;
+          }
+          if (!entryId) {
+            showStatus(confirmStatus, "Enter your entry ID from Step 2 — it looks like MUSE-XXXXXX.", false);
+            return;
+          }
+          confirmSubmit.disabled = true;
+          confirmSubmit.textContent = "Confirming…";
+
+          postToCollector({
+            _subject: "Muse raffle REDEMPTION claim " + entryId,
+            type: "redemption-confirmation",
+            email: email,
+            entry_id: entryId,
+            prize: state.prize || "(entered in a previous visit)",
+            src: src,
+            referral_code: CODE,
+            statement: "Visitor states they redeemed code 6AI4UJ within 48 hours of joining Muse."
+          }).then(function () {
+            state.confirmed = true;
+            showStatus(confirmStatus, "<strong>Confirmed.</strong> Email your redemption screenshot to <strong>" + OWNER_EMAIL + "</strong> with entry ID <strong>" + entryId + "</strong> in the subject to verify. Good luck!", true);
+            refreshProgress();
+          }).catch(function () {
+            showStatus(confirmStatus, "Form hiccup. Email <strong>" + OWNER_EMAIL + "</strong> with your entry ID <strong>" + entryId + "</strong> and your redemption screenshot instead.", false);
+          }).finally(function () {
+            confirmSubmit.disabled = false;
+            confirmSubmit.innerHTML = "I redeemed — confirm my entry";
+            if (window.lucide) lucide.createIcons();
+          });
+        });
+
+        refreshProgress();
+        if (window.lucide) lucide.createIcons();
+      })();
+    </script>
+  </body>
+</html>
